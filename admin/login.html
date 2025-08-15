@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Admin - Fio Trans Cargo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .login-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800 mb-2">Login Admin</h1>
+            <p class="text-gray-600">Fio Trans Cargo Dashboard</p>
+        </div>
+        
+        <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <span id="errorText"></span>
+        </div>
+        
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                <input type="text" id="username" name="username" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                       placeholder="Masukkan username">
+            </div>
+            
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                       placeholder="Masukkan password">
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                    <label for="remember" class="ml-2 block text-sm text-gray-700">Ingat saya</label>
+                </div>
+            </div>
+            
+            <button type="submit" id="loginBtn" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200">
+                <span id="loginBtnText">Masuk</span>
+                <i id="loginSpinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+            </button>
+        </form>
+        
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">
+                Default login: <strong>admin</strong> / <strong>admin123</strong>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        class LoginManager {
+            constructor() {
+                this.apiBase = '../backend/api';
+                this.init();
+            }
+            
+            init() {
+                // Check if already logged in
+                if (this.isLoggedIn()) {
+                    window.location.href = 'dashboard.html';
+                    return;
+                }
+                
+                this.setupEventListeners();
+            }
+            
+            setupEventListeners() {
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleLogin();
+                });
+            }
+            
+            async handleLogin() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const remember = document.getElementById('remember').checked;
+                
+                if (!username || !password) {
+                    this.showError('Username dan password harus diisi');
+                    return;
+                }
+                
+                this.setLoading(true);
+                this.hideError();
+                
+                try {
+                    // Simple authentication - in production, this should be more secure
+                    if (username === 'admin' && password === 'admin123') {
+                        // Set session
+                        const sessionData = {
+                            username: username,
+                            role: 'admin',
+                            loginTime: new Date().toISOString(),
+                            remember: remember
+                        };
+                        
+                        if (remember) {
+                            localStorage.setItem('adminSession', JSON.stringify(sessionData));
+                        } else {
+                            sessionStorage.setItem('adminSession', JSON.stringify(sessionData));
+                        }
+                        
+                        // Redirect to dashboard
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        this.showError('Username atau password salah');
+                    }
+                } catch (error) {
+                    console.error('Login error:', error);
+                    this.showError('Terjadi kesalahan saat login');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+            
+            isLoggedIn() {
+                const sessionData = localStorage.getItem('adminSession') || sessionStorage.getItem('adminSession');
+                if (!sessionData) return false;
+                
+                try {
+                    const session = JSON.parse(sessionData);
+                    // Check if session is valid (less than 24 hours for remember me, 2 hours for regular)
+                    const loginTime = new Date(session.loginTime);
+                    const now = new Date();
+                    const maxAge = session.remember ? 24 * 60 * 60 * 1000 : 2 * 60 * 60 * 1000; // 24h or 2h
+                    
+                    if (now - loginTime > maxAge) {
+                        this.logout();
+                        return false;
+                    }
+                    
+                    return true;
+                } catch (error) {
+                    return false;
+                }
+            }
+            
+            logout() {
+                localStorage.removeItem('adminSession');
+                sessionStorage.removeItem('adminSession');
+            }
+            
+            showError(message) {
+                document.getElementById('errorText').textContent = message;
+                document.getElementById('errorMessage').classList.remove('hidden');
+            }
+            
+            hideError() {
+                document.getElementById('errorMessage').classList.add('hidden');
+            }
+            
+            setLoading(loading) {
+                const btn = document.getElementById('loginBtn');
+                const btnText = document.getElementById('loginBtnText');
+                const spinner = document.getElementById('loginSpinner');
+                
+                if (loading) {
+                    btn.disabled = true;
+                    btn.classList.add('opacity-75');
+                    btnText.textContent = 'Memproses...';
+                    spinner.classList.remove('hidden');
+                } else {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-75');
+                    btnText.textContent = 'Masuk';
+                    spinner.classList.add('hidden');
+                }
+            }
+        }
+        
+        // Initialize login manager
+        const loginManager = new LoginManager();
+    </script>
+</body>
+</html>
+

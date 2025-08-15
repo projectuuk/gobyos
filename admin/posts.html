@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Artikel - Fio Trans Cargo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="auth.js"></script>
+    <style>
+        .sidebar-active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .modal { display: none; }
+        .modal.show { display: flex; }
+        .editor-toolbar { border-bottom: 1px solid #e5e7eb; padding: 10px; }
+        .editor-toolbar button { margin-right: 5px; padding: 5px 10px; border: 1px solid #d1d5db; background: white; border-radius: 4px; }
+        .editor-toolbar button:hover { background: #f3f4f6; }
+        .editor-content { min-height: 300px; padding: 15px; border: none; outline: none; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-64 bg-white shadow-lg">
+            <div class="p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                <h1 class="text-xl font-bold">Dashboard Admin - Fio Trans Cargo</h1>
+            </div>
+            
+            <nav class="mt-6">
+                <a href="dashboard.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-tachometer-alt mr-3"></i>
+                    Dashboard
+                    <span class="ml-auto bg-orange-500 text-white text-xs px-2 py-1 rounded-full">5</span>
+                </a>
+                <a href="posts.html" class="flex items-center px-6 py-3 text-white sidebar-active">
+                    <i class="fas fa-edit mr-3"></i>
+                    Artikel
+                    <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">4</span>
+                </a>
+                <a href="categories.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-tags mr-3"></i>
+                    Kategori
+                    <span class="ml-auto bg-green-500 text-white text-xs px-2 py-1 rounded-full">3</span>
+                </a>
+                <a href="bookings.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-shipping-fast mr-3"></i>
+                    Booking
+                    <span class="ml-auto bg-purple-500 text-white text-xs px-2 py-1 rounded-full">6</span>
+                </a>
+                <a href="users.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-users mr-3"></i>
+                    Users
+                    <span class="ml-auto bg-blue-500 text-white text-xs px-2 py-1 rounded-full">2</span>
+                </a>
+                <a href="media.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-images mr-3"></i>
+                    Media
+                </a>
+                <a href="analytics.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-chart-bar mr-3"></i>
+                    Analytics
+                    <span class="ml-auto bg-indigo-500 text-white text-xs px-2 py-1 rounded-full">7</span>
+                </a>
+                <a href="seo.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-search mr-3"></i>
+                    SEO
+                    <span class="ml-auto bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">8</span>
+                </a>
+                <a href="settings.html" class="flex items-center px-6 py-3 text-gray-700 hover:bg-gray-100">
+                    <i class="fas fa-cog mr-3"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="flex items-center justify-between px-6 py-4">
+                    <h2 class="text-2xl font-semibold text-gray-800">Manajemen Artikel</h2>
+                    <div class="flex items-center space-x-4">
+                        <a href="../frontend/index.html" target="_blank" class="text-blue-600 hover:text-blue-800">
+                            <i class="fas fa-external-link-alt mr-1"></i>
+                            Lihat Website
+                        </a>
+                        <div class="relative">
+                            <button class="flex items-center text-gray-700 hover:text-gray-900 admin-username">
+                                <i class="fas fa-user-circle text-2xl mr-2"></i>
+                                Admin
+                                <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                        </div>
+                        <button class="logout-btn text-gray-700 hover:text-gray-900" title="Logout">
+                            <i class="fas fa-sign-out-alt text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="fas fa-file-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Total Artikel</p>
+                                <p class="text-2xl font-semibold text-gray-900" id="totalPosts">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-check-circle text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Published</p>
+                                <p class="text-2xl font-semibold text-gray-900" id="publishedPosts">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Draft</p>
+                                <p class="text-2xl font-semibold text-gray-900" id="draftPosts">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Total Views</p>
+                                <p class="text-2xl font-semibold text-gray-900" id="totalViews">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Posts Management -->
+                <div class="bg-white rounded-lg shadow">
+                    <div class="p-6 border-b border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-gray-900">Daftar Artikel</h3>
+                            <button onclick="openPostModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                                <i class="fas fa-plus mr-2"></i>
+                                Artikel Baru
+                            </button>
+                        </div>
+                        
+                        <!-- Search and Filter -->
+                        <div class="mt-4 flex flex-col sm:flex-row gap-4">
+                            <div class="flex-1">
+                                <input type="text" id="searchPosts" placeholder="Cari artikel..." 
+                                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <select id="filterStatus" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Semua Status</option>
+                                <option value="published">Published</option>
+                                <option value="draft">Draft</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                            <select id="filterCategory" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">Semua Kategori</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Posts Table -->
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <input type="checkbox" id="selectAll" class="rounded">
+                                    </th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Judul</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kategori</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Views</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="postsTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- Posts will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="px-6 py-4 border-t border-gray-200">
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-700">
+                                Menampilkan <span id="showingFrom">1</span> sampai <span id="showingTo">10</span> dari <span id="totalEntries">0</span> artikel
+                            </div>
+                            <div class="flex space-x-2" id="pagination">
+                                <!-- Pagination buttons will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Post Modal -->
+    <div id="postModal" class="modal fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-4xl shadow-lg rounded-md bg-white">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-gray-900" id="modalTitle">Artikel Baru</h3>
+                <button onclick="closePostModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="postForm" class="space-y-6">
+                <input type="hidden" id="postId" name="id">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="postTitle" class="block text-sm font-medium text-gray-700 mb-2">Judul Artikel *</label>
+                        <input type="text" id="postTitle" name="title" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="postSlug" class="block text-sm font-medium text-gray-700 mb-2">Slug URL</label>
+                        <input type="text" id="postSlug" name="slug"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="text-xs text-gray-500 mt-1">Akan dibuat otomatis jika kosong</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="postCategory" class="block text-sm font-medium text-gray-700 mb-2">Kategori</label>
+                        <select id="postCategory" name="category_id" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="">Pilih Kategori</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="postStatus" class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                        <select id="postStatus" name="status" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                            <option value="pending">Pending Review</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="postFeaturedImage" class="block text-sm font-medium text-gray-700 mb-2">Gambar Unggulan</label>
+                    <input type="url" id="postFeaturedImage" name="featured_image" placeholder="https://example.com/image.jpg"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                </div>
+                
+                <div>
+                    <label for="postExcerpt" class="block text-sm font-medium text-gray-700 mb-2">Ringkasan</label>
+                    <textarea id="postExcerpt" name="excerpt" rows="3" placeholder="Ringkasan singkat artikel..."
+                              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                </div>
+                
+                <div>
+                    <label for="postContent" class="block text-sm font-medium text-gray-700 mb-2">Konten Artikel *</label>
+                    <div class="border border-gray-300 rounded-lg">
+                        <div class="editor-toolbar bg-gray-50">
+                            <button type="button" onclick="formatText('bold')"><i class="fas fa-bold"></i></button>
+                            <button type="button" onclick="formatText('italic')"><i class="fas fa-italic"></i></button>
+                            <button type="button" onclick="formatText('underline')"><i class="fas fa-underline"></i></button>
+                            <button type="button" onclick="formatText('insertOrderedList')"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" onclick="formatText('insertUnorderedList')"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" onclick="formatText('createLink')"><i class="fas fa-link"></i></button>
+                            <button type="button" onclick="formatText('insertImage')"><i class="fas fa-image"></i></button>
+                        </div>
+                        <div id="postContent" contenteditable="true" class="editor-content" style="min-height: 300px;">
+                            <p>Mulai menulis artikel Anda di sini...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SEO Section -->
+                <div class="border-t pt-6">
+                    <h4 class="text-lg font-medium text-gray-900 mb-4">SEO Settings</h4>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label for="metaTitle" class="block text-sm font-medium text-gray-700 mb-2">Meta Title</label>
+                            <input type="text" id="metaTitle" name="meta_title" maxlength="60"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">Maksimal 60 karakter. Akan menggunakan judul artikel jika kosong.</p>
+                        </div>
+                        
+                        <div>
+                            <label for="metaDescription" class="block text-sm font-medium text-gray-700 mb-2">Meta Description</label>
+                            <textarea id="metaDescription" name="meta_description" rows="3" maxlength="160"
+                                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                            <p class="text-xs text-gray-500 mt-1">Maksimal 160 karakter untuk hasil pencarian yang optimal.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end space-x-4 pt-6 border-t">
+                    <button type="button" onclick="closePostModal()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                        <i class="fas fa-save mr-2"></i>
+                        Simpan Artikel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../frontend/assets/js/admin-posts.js"></script>
+    <script>
+        // Global functions for modal and editor
+        let postsManager;
+        
+        // Initialize posts manager when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            postsManager = new PostsManager();
+        });
+        
+        function openPostModal() {
+            if (postsManager) {
+                postsManager.openPostModal();
+            }
+        }
+        
+        function closePostModal() {
+            if (postsManager) {
+                postsManager.closePostModal();
+            }
+        }
+        
+        function formatText(command) {
+            document.execCommand(command, false, null);
+            document.getElementById('postContent').focus();
+        }
+    </script>
+</body>
+</html>
+

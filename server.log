@@ -1,0 +1,188 @@
+[Tue Aug 12 01:54:35 2025] PHP 8.1.2-1ubuntu2.22 Development Server (http://0.0.0.0:8000) started
+[Tue Aug 12 01:54:37 2025] 127.0.0.1:59718 Accepted
+[Tue Aug 12 01:54:37 2025] 127.0.0.1:59732 Accepted
+[Tue Aug 12 01:54:37 2025] 127.0.0.1:59718 [200]: GET /install.php
+[Tue Aug 12 01:54:37 2025] 127.0.0.1:59718 Closing
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45006 Accepted
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:59732 [200]: GET /frontend/index.html
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:59732 Closing
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45010 Accepted
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45006 [404]: GET /frontend/assets/images/logo.png - No such file or directory
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45006 Closing
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45010 [200]: GET /frontend/assets/js/main.js
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45010 Closing
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45022 Accepted
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45022 [200]: GET /frontend/assets/js/analytics.js
+[Tue Aug 12 01:55:36 2025] 127.0.0.1:45022 Closing
+[Tue Aug 12 01:55:40 2025] 127.0.0.1:38696 Accepted
+[Tue Aug 12 01:55:40 2025] 127.0.0.1:38696 [404]: GET /backend/api/posts - No such file or directory
+[Tue Aug 12 01:55:40 2025] 127.0.0.1:38696 Closing
+[Tue Aug 12 01:55:41 2025] 127.0.0.1:38708 Accepted
+[Tue Aug 12 01:55:41 2025] 127.0.0.1:38708 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:55:41 2025] 127.0.0.1:38708 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38724 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38732 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38724 [200]: GET /frontend/blog.html
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38724 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38732 [200]: GET /frontend/assets/css/style.css
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38732 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38746 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38762 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38778 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38746 [404]: GET /frontend/assets/images/logo.png - No such file or directory
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38746 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38762 [200]: GET /frontend/assets/js/main.js
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38762 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38778 [200]: GET /frontend/assets/js/blog.js
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38778 Closing
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38790 Accepted
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38790 [200]: GET /frontend/assets/js/analytics.js
+[Tue Aug 12 01:55:48 2025] 127.0.0.1:38790 Closing
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38802 Accepted
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38802 [404]: GET /backend/api/posts?page=1&limit=12 - No such file or directory
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38802 Closing
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38804 Accepted
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38812 Accepted
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38804 [404]: GET /backend/api/categories - No such file or directory
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38804 Closing
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38820 Accepted
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38812 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38812 Closing
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38820 [404]: GET /backend/api/seo?page_type=page&page_id=blog - No such file or directory
+[Tue Aug 12 01:55:49 2025] 127.0.0.1:38820 Closing
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53564 Accepted
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53564 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53564 Closing
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53568 Accepted
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53568 [200]: GET /frontend/assets/css/style.css
+[Tue Aug 12 01:55:57 2025] 127.0.0.1:53568 Closing
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58948 Accepted
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58954 Accepted
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58948 [200]: GET /admin/dashboard.html
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58948 Closing
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58954 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:56:04 2025] 127.0.0.1:58954 Closing
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58958 Accepted
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58958 [404]: GET /backend/api/analytics?action=summary - No such file or directory
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58958 Closing
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58970 Accepted
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58986 Accepted
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58970 [404]: GET /backend/api/analytics?action=daily&days=30 - No such file or directory
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58970 Closing
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58986 [404]: GET /backend/api/analytics?action=browsers - No such file or directory
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58986 Closing
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58996 Accepted
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58996 [404]: GET /backend/api/analytics?action=popular_pages&limit=5 - No such file or directory
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:58996 Closing
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:59006 Accepted
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:59006 [404]: GET /backend/api/analytics?action=referrers&limit=5 - No such file or directory
+[Tue Aug 12 01:56:07 2025] 127.0.0.1:59006 Closing
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46150 Accepted
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46150 [200]: GET /frontend/index.html
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46150 Closing
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46154 Accepted
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46154 [404]: GET /frontend/assets/images/logo.png - No such file or directory
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46168 Accepted
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46154 Closing
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46168 [200]: GET /frontend/assets/js/main.js
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46168 Closing
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46172 Accepted
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46172 [200]: GET /frontend/assets/js/analytics.js
+[Tue Aug 12 01:57:16 2025] 10.170.62.1:46172 Closing
+[Tue Aug 12 01:57:19 2025] 10.170.62.1:46174 Accepted
+[Tue Aug 12 01:57:19 2025] 10.170.62.1:46174 [404]: GET /backend/api/posts - No such file or directory
+[Tue Aug 12 01:57:19 2025] 10.170.62.1:46174 Closing
+[Tue Aug 12 01:57:20 2025] 10.170.62.1:46180 Accepted
+[Tue Aug 12 01:57:20 2025] 10.170.62.1:46180 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:57:20 2025] 10.170.62.1:46180 Closing
+[Tue Aug 12 01:57:50 2025] 10.170.62.1:58774 Accepted
+[Tue Aug 12 01:57:50 2025] 10.170.62.1:58774 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 01:57:50 2025] 10.170.62.1:58774 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40506 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40504 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40506 [200]: HEAD /frontend/index.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40504 [200]: HEAD /frontend/blog.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40506 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40504 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40524 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40524 [200]: HEAD /install.php
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40524 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40534 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40534 [200]: GET /frontend/index.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40534 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40540 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40540 [200]: HEAD /admin/dashboard.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40540 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40542 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40542 [200]: GET /frontend/blog.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40542 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40550 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40550 [200]: GET /install.php
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40550 Closing
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40564 Accepted
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40564 [200]: GET /admin/dashboard.html
+[Tue Aug 12 01:58:02 2025] 10.170.62.1:40564 Closing
+[Tue Aug 12 04:38:16 2025] 10.200.247.1:35688 Accepted
+[Tue Aug 12 04:38:16 2025] 10.200.247.1:35688 [200]: GET /admin/dashboard.html
+[Tue Aug 12 04:38:16 2025] 10.200.247.1:35688 Closing
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35702 Accepted
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35702 [404]: GET /backend/api/analytics?action=browsers - No such file or directory
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35706 Accepted
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35702 Closing
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35716 Accepted
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35706 [404]: GET /backend/api/analytics?action=summary - No such file or directory
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35716 [404]: GET /backend/api/analytics?action=referrers&limit=5 - No such file or directory
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35706 Closing
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35716 Closing
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35720 Accepted
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35726 Accepted
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35720 [404]: GET /backend/api/analytics?action=popular_pages&limit=5 - No such file or directory
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35720 Closing
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35726 [404]: GET /backend/api/analytics?action=daily&days=30 - No such file or directory
+[Tue Aug 12 04:38:17 2025] 10.200.247.1:35726 Closing
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43308 Accepted
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43308 [200]: GET /admin/dashboard.html
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43308 Closing
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43314 Accepted
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43314 [404]: POST /backend/api/analytics - No such file or directory
+[Tue Aug 12 22:14:42 2025] 10.202.182.1:43314 Closing
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48120 Accepted
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48120 [404]: GET /backend/api/analytics?action=summary - No such file or directory
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48120 Closing
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48134 Accepted
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48134 [404]: GET /backend/api/analytics?action=daily&days=30 - No such file or directory
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48134 Closing
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48138 Accepted
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48138 [404]: GET /backend/api/analytics?action=browsers - No such file or directory
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48138 Closing
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48140 Accepted
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48142 Accepted
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48140 [404]: GET /backend/api/analytics?action=referrers&limit=5 - No such file or directory
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48140 Closing
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48142 [404]: GET /backend/api/analytics?action=popular_pages&limit=5 - No such file or directory
+[Tue Aug 12 22:15:12 2025] 10.202.182.1:48142 Closing
+[Tue Aug 12 22:15:27 2025] 10.202.182.1:42318 Accepted
+[Tue Aug 12 22:15:27 2025] 10.202.182.1:42318 [404]: GET /admin/posts.html - No such file or directory
+[Tue Aug 12 22:15:27 2025] 10.202.182.1:42318 Closing
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37882 Accepted
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37882 [200]: GET /admin/posts.html
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37882 Closing
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37884 Accepted
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37884 [200]: GET /frontend/assets/js/admin-posts.js
+[Tue Aug 12 22:20:41 2025] 10.202.182.1:37884 Closing
+[Tue Aug 12 22:20:42 2025] 10.202.182.1:37888 Accepted
+[Tue Aug 12 22:20:42 2025] 10.202.182.1:37888 [404]: GET /backend/api/categories.php - No such file or directory
+[Tue Aug 12 22:20:42 2025] 10.202.182.1:37888 Closing
+[Tue Aug 12 22:20:42 2025] 10.202.182.1:37890 Accepted
+[Tue Aug 12 22:20:43 2025] Connection error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+[Tue Aug 12 22:20:43 2025] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home/ubuntu/fio_trans_cargo_website/backend/models/Post.php:30
+Stack trace:
+#0 /home/ubuntu/fio_trans_cargo_website/backend/api/posts.php(46): Post->read()
+#1 {main}
+  thrown in /home/ubuntu/fio_trans_cargo_website/backend/models/Post.php on line 30
+[Tue Aug 12 22:20:43 2025] 10.202.182.1:37890 [200]: GET /backend/api/posts.php - Uncaught Error: Call to a member function prepare() on null in /home/ubuntu/fio_trans_cargo_website/backend/models/Post.php:30
+Stack trace:
+#0 /home/ubuntu/fio_trans_cargo_website/backend/api/posts.php(46): Post->read()
+#1 {main}
+  thrown in /home/ubuntu/fio_trans_cargo_website/backend/models/Post.php on line 30
+[Tue Aug 12 22:20:43 2025] 10.202.182.1:37890 Closing

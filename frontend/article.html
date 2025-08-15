@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Artikel - Fio Trans Cargo</title>
+    <meta name="description" id="page-description" content="">
+    <meta name="keywords" id="page-keywords" content="">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" id="canonical-url" href="">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" id="og-image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Fio Trans Cargo">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" id="structured-data"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="assets/images/logo.png" alt="Fio Trans Cargo" class="h-10 w-auto mr-3" onerror="this.style.display=\'none\'">
+                    <span class="text-2xl font-bold text-blue-600">Fio Trans Cargo</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="#pengiriman-barang" class="text-gray-700 hover:text-blue-600 transition duration-300">Pengiriman barang</a>
+                    <a href="#cek-tarif" class="text-gray-700 hover:text-blue-600 transition duration-300">Cek Tarif</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">Tentang Kami</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Hubungi kami</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Layanan</a>
+                <a href="blog.html" class="block py-2 text-blue-600 font-semibold">Blog</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600">Tentang Kami</a>
+                <a href="#booking" class="block py-2 text-blue-600 font-semibold">Booking</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <section class="pt-24 pb-12 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" id="article-title"></h1>
+            <p class="text-xl text-blue-100" id="article-excerpt"></p>
+            <p class="text-sm text-blue-200 mt-2" id="article-meta"></p>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div id="article-content" class="prose lg:prose-lg mx-auto">
+                <!-- Article content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Berlangganan Newsletter</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Dapatkan artikel terbaru dan tips pengiriman langsung di email Anda
+            </p>
+            
+            <form id="newsletter-form" class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" name="email" placeholder="Alamat email Anda" required
+                       class="flex-1 px-4 py-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <button type="submit" class="bg-yellow-500 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition duration-300">
+                    Berlangganan
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Fio Trans Cargo</h3>
+                    <p class="text-gray-300 mb-4">
+                        Jasa pengiriman barang terpercaya ke seluruh Indonesia dengan layanan profesional dan harga terjangkau.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Layanan</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition duration-300">Pengiriman Darat</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Pengiriman Laut</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Trucking</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Container</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Informasi</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition duration-300">Tentang Kami</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition duration-300">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Karir</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p><i class="fas fa-phone mr-2"></i>+62-123-456-7890</p>
+                        <p><i class="fas fa-envelope mr-2"></i>info@fiotranscargo.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>Jakarta, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 Fio Trans Cargo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/article.js"></script>
+    <script src="assets/js/analytics.js"></script>
+</body>
+</html>
+
+

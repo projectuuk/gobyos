@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Fio Trans Cargo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold">Dashboard Admin - Fio Trans Cargo</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../frontend/index.html" class="hover:text-blue-200 transition duration-300">
+                        <i class="fas fa-external-link-alt mr-1"></i>Lihat Website
+                    </a>
+                    <button class="hover:text-blue-200 transition duration-300 admin-username">
+                        <i class="fas fa-user mr-1"></i>Admin
+                    </button>
+                    <button class="logout-btn hover:text-blue-200 transition duration-300" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-white shadow-lg min-h-screen">
+            <div class="p-6">
+                <nav class="space-y-2">
+                    <a href="#dashboard" class="flex items-center px-4 py-2 text-blue-600 bg-blue-50 rounded-lg">
+                        <i class="fas fa-chart-bar mr-3"></i>Dashboard
+                    </a>
+                    <a href="#posts" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-newspaper mr-3"></i>Artikel
+                    </a>
+                    <a href="#categories" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-tags mr-3"></i>Kategori
+                    </a>
+                    <a href="#bookings" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-box mr-3"></i>Booking
+                    </a>
+                    <a href="#analytics" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-analytics mr-3"></i>Analytics
+                    </a>
+                    <a href="#seo" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-search mr-3"></i>SEO
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Dashboard Overview -->
+            <div id="dashboard-section">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Dashboard Overview</h2>
+                    <p class="text-gray-600">Ringkasan statistik website Fio Trans Cargo</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-blue-100 text-blue-600">
+                                <i class="fas fa-eye text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Total Kunjungan</p>
+                                <p class="text-2xl font-bold text-gray-900" id="total-visits">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-green-100 text-green-600">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Pengunjung Unik</p>
+                                <p class="text-2xl font-bold text-gray-900" id="unique-visitors">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-calendar-day text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Kunjungan Hari Ini</p>
+                                <p class="text-2xl font-bold text-gray-900" id="today-visits">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center">
+                            <div class="p-3 rounded-full bg-purple-100 text-purple-600">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="text-sm font-medium text-gray-600">Kunjungan Bulan Ini</p>
+                                <p class="text-2xl font-bold text-gray-900" id="month-visits">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    <!-- Daily Visits Chart -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Kunjungan Harian (30 Hari Terakhir)</h3>
+                        <canvas id="daily-visits-chart" width="400" height="200"></canvas>
+                    </div>
+
+                    <!-- Browser Stats -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Browser Pengunjung</h3>
+                        <canvas id="browser-chart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- Popular Pages and Referrers -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Popular Pages -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Halaman Terpopuler</h3>
+                        <div id="popular-pages" class="space-y-3">
+                            <!-- Popular pages will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Top Referrers -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Sumber Kunjungan Teratas</h3>
+                        <div id="top-referrers" class="space-y-3">
+                            <!-- Top referrers will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div id="analytics-section" class="hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Analytics Detail</h2>
+                    <p class="text-gray-600">Analisis mendalam tentang kunjungan website</p>
+                </div>
+
+                <!-- Date Range Selector -->
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+                    <div class="flex flex-col md:flex-row gap-4 items-center">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Periode:</label>
+                            <select id="date-range" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="7">7 Hari Terakhir</option>
+                                <option value="30" selected>30 Hari Terakhir</option>
+                                <option value="90">90 Hari Terakhir</option>
+                            </select>
+                        </div>
+                        <button id="refresh-analytics" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-sync-alt mr-2"></i>Refresh Data
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detailed Analytics -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <!-- Device Types -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Jenis Perangkat</h3>
+                        <div id="device-stats" class="space-y-2">
+                            <!-- Device stats will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Operating Systems -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Sistem Operasi</h3>
+                        <div id="os-stats" class="space-y-2">
+                            <!-- OS stats will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Recent Visits -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Kunjungan Terbaru</h3>
+                        <div id="recent-visits" class="space-y-2 max-h-64 overflow-y-auto">
+                            <!-- Recent visits will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // API Base URL
+        const API_BASE_URL = '../backend';
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboardData();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Sidebar navigation
+            document.querySelectorAll('aside a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    showSection(target);
+                    
+                    // Update active state
+                    document.querySelectorAll('aside a').forEach(l => l.classList.remove('text-blue-600', 'bg-blue-50'));
+                    this.classList.add('text-blue-600', 'bg-blue-50');
+                });
+            });
+
+            // Analytics refresh button
+            const refreshBtn = document.getElementById('refresh-analytics');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', loadAnalyticsData);
+            }
+
+            // Date range selector
+            const dateRange = document.getElementById('date-range');
+            if (dateRange) {
+                dateRange.addEventListener('change', loadAnalyticsData);
+            }
+        }
+
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('[id$="-section"]').forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show target section
+            const targetSection = document.getElementById(sectionName + '-section');
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            }
+
+            // Load section-specific data
+            if (sectionName === 'analytics') {
+                loadAnalyticsData();
+            }
+        }
+
+        function loadDashboardData() {
+            // Load summary statistics
+            fetch(`${API_BASE_URL}/api/analytics?action=summary`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('total-visits').textContent = data.total_visits || 0;
+                    document.getElementById('unique-visitors').textContent = data.unique_visitors || 0;
+                    document.getElementById('today-visits').textContent = data.today_visits || 0;
+                    document.getElementById('month-visits').textContent = data.month_visits || 0;
+                })
+                .catch(error => console.error('Error loading summary:', error));
+
+            // Load daily visits chart
+            loadDailyVisitsChart();
+
+            // Load browser stats chart
+            loadBrowserChart();
+
+            // Load popular pages
+            loadPopularPages();
+
+            // Load top referrers
+            loadTopReferrers();
+        }
+
+        function loadDailyVisitsChart() {
+            fetch(`${API_BASE_URL}/api/analytics?action=daily&days=30`)
+                .then(response => response.json())
+                .then(data => {
+                    const ctx = document.getElementById('daily-visits-chart').getContext('2d');
+                    
+                    // Prepare data for chart
+                    const labels = data.map(item => {
+                        const date = new Date(item.date);
+                        return date.toLocaleDateString('id-ID', { month: 'short', day: 'numeric' });
+                    });
+                    const visits = data.map(item => item.visits);
+
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Kunjungan',
+                                data: visits,
+                                borderColor: 'rgb(59, 130, 246)',
+                                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                                tension: 0.1,
+                                fill: true
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading daily visits:', error));
+        }
+
+        function loadBrowserChart() {
+            fetch(`${API_BASE_URL}/api/analytics?action=browsers`)
+                .then(response => response.json())
+                .then(data => {
+                    const ctx = document.getElementById('browser-chart').getContext('2d');
+                    
+                    const labels = data.map(item => item.browser);
+                    const visits = data.map(item => item.visits);
+                    const colors = [
+                        '#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6',
+                        '#06B6D4', '#84CC16', '#F97316', '#EC4899', '#6B7280'
+                    ];
+
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                data: visits,
+                                backgroundColor: colors.slice(0, labels.length)
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'bottom'
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error loading browser stats:', error));
+        }
+
+        function loadPopularPages() {
+            fetch(`${API_BASE_URL}/api/analytics?action=popular_pages&limit=5`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('popular-pages');
+                    container.innerHTML = '';
+
+                    if (data.length === 0) {
+                        container.innerHTML = '<p class="text-gray-500 text-sm">Belum ada data</p>';
+                        return;
+                    }
+
+                    data.forEach(page => {
+                        const pageElement = document.createElement('div');
+                        pageElement.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+                        pageElement.innerHTML = `
+                            <div>
+                                <p class="font-medium text-sm">${page.page_title || 'Untitled'}</p>
+                                <p class="text-xs text-gray-500">${page.page_url}</p>
+                            </div>
+                            <span class="text-sm font-semibold text-blue-600">${page.visits}</span>
+                        `;
+                        container.appendChild(pageElement);
+                    });
+                })
+                .catch(error => console.error('Error loading popular pages:', error));
+        }
+
+        function loadTopReferrers() {
+            fetch(`${API_BASE_URL}/api/analytics?action=referrers&limit=5`)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('top-referrers');
+                    container.innerHTML = '';
+
+                    if (data.length === 0) {
+                        container.innerHTML = '<p class="text-gray-500 text-sm">Belum ada data</p>';
+                        return;
+                    }
+
+                    data.forEach(referrer => {
+                        const referrerElement = document.createElement('div');
+                        referrerElement.className = 'flex justify-between items-center py-2 border-b border-gray-100';
+                        
+                        let displayUrl = referrer.referrer;
+                        try {
+                            const url = new URL(referrer.referrer);
+                            displayUrl = url.hostname;
+                        } catch (e) {
+                            // Keep original if not a valid URL
+                        }
+
+                        referrerElement.innerHTML = `
+                            <div>
+                                <p class="font-medium text-sm">${displayUrl}</p>
+                                <p class="text-xs text-gray-500">${referrer.referrer}</p>
+                            </div>
+                            <span class="text-sm font-semibold text-green-600">${referrer.visits}</span>
+                        `;
+                        container.appendChild(referrerElement);
+                    });
+                })
+                .catch(error => console.error('Error loading top referrers:', error));
+        }
+
+        function loadAnalyticsData() {
+            // This function would load more detailed analytics data
+            // Implementation depends on specific analytics requirements
+            console.log('Loading detailed analytics data...');
+        }
+    </script>
+</body>
+</html>
+
